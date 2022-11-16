@@ -1,0 +1,6 @@
+# Usage: pip install -r requirements.txt
+pyqt5>=5.15.4
+pyqt5-tools>=5.15.4.3.2
+numpy>=1.21.5
+pillow>=9.0.1
+matplotlib>=3.2.2
