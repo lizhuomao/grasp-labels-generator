@@ -36,12 +36,19 @@ class MyGraphicsView(QtWidgets.QGraphicsView):
             elif self.clicked_cnt == 2:
                 self.temp_pos.append([x, y])
 
-                a = (self.temp_pos[1][1] - self.temp_pos[0][1]) \
-                    / (self.temp_pos[1][0] - self.temp_pos[0][0])
-                b = self.temp_pos[0][1] - (a * self.temp_pos[0][0])
-                x_c = (((1 / a) - a) * self.temp_pos[2][0] + 2 *
-                       self.temp_pos[2][1] - 2 * b) / (a + (1 / a))
-                y_c = self.temp_pos[2][1] - (x_c - self.temp_pos[2][0]) / a
+                if self.temp_pos[1][0] - self.temp_pos[0][0] == 0:
+                    y_c = self.temp_pos[2][1]
+                    x_c = self.temp_pos[1][0] - self.temp_pos[2][0] + self.temp_pos[1][0]
+                elif self.temp_pos[1][1] - self.temp_pos[0][1] == 0:
+                    x_c = self.temp_pos[2][0]
+                    y_c = self.temp_pos[1][1] - self.temp_pos[2][1] + self.temp_pos[1][1]
+                else:
+                    a = (self.temp_pos[1][1] - self.temp_pos[0][1]) \
+                        / (self.temp_pos[1][0] - self.temp_pos[0][0])
+                    b = self.temp_pos[0][1] - (a * self.temp_pos[0][0])
+                    x_c = (((1 / a) - a) * self.temp_pos[2][0] + 2 *
+                           self.temp_pos[2][1] - 2 * b) / (a + (1 / a))
+                    y_c = self.temp_pos[2][1] - (x_c - self.temp_pos[2][0]) / a
 
                 self.temp_pos.append([x_c, y_c])
                 line2 = QtWidgets.QGraphicsLineItem()

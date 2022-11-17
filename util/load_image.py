@@ -20,7 +20,6 @@ def load_label_to_image(current_file):
     plt.imshow(img)
     if os.path.exists(current_label_file):
         labels = np.loadtxt(current_label_file)
-        print("?")
         for i in range(0, len(labels), 4):
             x1, y1 = labels[i, 0], labels[i, 1]
             x2, y2 = labels[i + 1, 0], labels[i + 1, 1]
@@ -72,6 +71,8 @@ class ImageSet:
 
     def piror(self, ui):
         ui.graphicsView.pos = []
+        ui.graphicsView.temp_pos = []
+        ui.graphicsView.clicked_cnt = 0
         ui.listView.clear()
         if len(self.image_with_label_file_list) == 0:
             QMessageBox.information(ui.widget, 'Warring', '请先点击开始按钮以开始标记')
@@ -84,6 +85,8 @@ class ImageSet:
     def next(self, ui):
         ui.listView.clear()
         ui.graphicsView.pos = []
+        ui.graphicsView.temp_pos = []
+        ui.graphicsView.clicked_cnt = 0
         if len(self.image_with_label_file_list) == 0:
             QMessageBox.information(ui.widget, 'Warring', '请先点击开始按钮以开始标记')
             pass

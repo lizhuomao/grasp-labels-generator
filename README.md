@@ -15,7 +15,7 @@ You need to note that the labeled image is generated under folder ``'customdata\
 Run the GUI with the following command:
 
 ```python
-python run_test_label.py
+python run_label_test.py
 ```
 
 After clicking the Start button, you then need to click twice for the grasp path and again for the width of the grasp. click the Save button to save the labels after all paths are marked. It can also be re-labeled at any time by using the Re-labeling button. **Click the mouse should not be too fast, may kill the program in the annotation.**
