@@ -14,7 +14,7 @@ def load_label_to_image(current_file):
     print(current_file)
     current_label_file = current_file.replace('images', 'labels').replace('r.jpg', 'cpos.txt')
     plt.figure()
-    #fig, ax = plt.subplots(1, 1)
+    # fig, ax = plt.subplots(1, 1)
     img = np.array(Image.open(current_file))
     print(img.shape)
     plt.imshow(img)
@@ -56,7 +56,15 @@ class ImageSet:
         self.image_with_label_path = 'customdata/images_with_labels/'
         self.set_path = 'customdata/images/'
 
+    def save_labeled_num(self):
+        np.savetxt('util/labeled_num.txt', np.array([self.has_marked]))
+
+    def load_labeled_num(self):
+        if not os.path.exists('util/labeled_num.txt'):
+            return
+        self.has_marked = int(np.loadtxt('util/labeled_num.txt'))
     def begin(self, ui):
+        self.load_labeled_num()
         ui.graphicsView.pos = []
         self.image_file_list = os.listdir(self.set_path)
         if True:
@@ -81,6 +89,7 @@ class ImageSet:
             current_file = self.image_with_label_path + self.image_with_label_file_list[idx]
             ui.graphicsView.setScene(load_image_to_scene(current_file))
             self.has_marked -= 1
+            self.save_labeled_num()
 
     def next(self, ui):
         ui.listView.clear()
@@ -95,3 +104,4 @@ class ImageSet:
             current_file = self.image_with_label_path + self.image_with_label_file_list[idx]
             ui.graphicsView.setScene(load_image_to_scene(current_file))
             self.has_marked += 1
+            self.save_labeled_num()
