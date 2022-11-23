@@ -14,7 +14,7 @@ if __name__ == '__main__':
     ui.setupUi(mainWindow)
     imageset = ImageSet()
     ui.pushButton.clicked.connect(lambda: imageset.begin(ui))
-    ui.pushButton_2.clicked.connect(lambda: imageset.piror(ui))
+    ui.pushButton_2.clicked.connect(lambda: imageset.prior(ui))
     ui.pushButton_3.clicked.connect(lambda: imageset.next(ui))
     ui.pushButton_4.clicked.connect(lambda: add_new_labels(ui, imageset))
     ui.pushButton_5.clicked.connect(lambda: delete_labels(ui, imageset))

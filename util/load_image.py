@@ -63,6 +63,7 @@ class ImageSet:
         if not os.path.exists('util/labeled_num.txt'):
             return
         self.has_marked = int(np.loadtxt('util/labeled_num.txt'))
+
     def begin(self, ui):
         self.load_labeled_num()
         ui.graphicsView.pos = []
@@ -77,7 +78,7 @@ class ImageSet:
         ui.pushButton.setEnabled(False)
         ui.listView.clear()
 
-    def piror(self, ui):
+    def prior(self, ui):
         ui.graphicsView.pos = []
         ui.graphicsView.temp_pos = []
         ui.graphicsView.clicked_cnt = 0
@@ -85,7 +86,7 @@ class ImageSet:
         if len(self.image_with_label_file_list) == 0:
             QMessageBox.information(ui.widget, 'Warring', '请先点击开始按钮以开始标记')
         else:
-            idx = (self.has_marked - 1 + len(self.image_with_label_file_list)) % len(self.image_with_label_file_list)
+            idx = (self.has_marked - 1 + len(self.image_with_label_file_list) * 2) % len(self.image_with_label_file_list)
             current_file = self.image_with_label_path + self.image_with_label_file_list[idx]
             ui.graphicsView.setScene(load_image_to_scene(current_file))
             self.has_marked -= 1
