@@ -38,21 +38,21 @@ for file in files:
             if flag:
                 ltx = x1
                 lty = y1 + w
-                rtx = x2
-                rty = y2 + w
-                lbx = x1
-                lby = y1 - w
-                rbx = x1
-                rby = y1 + w
+                rtx = x1
+                rty = y1 - w
+                lbx = x2
+                lby = y2 + w
+                rbx = x2
+                rby = y2 - w
             else:
-                ltx = x1 - w
-                lty = y1
-                rtx = x1 + w
-                rty = y1
-                lbx = x2 - w
-                lby = y2
-                rbx = x2 + w
-                rby = y2
+                ltx = x2
+                lty = y2 + w
+                rtx = x2
+                rty = y2 - w
+                lbx = x1
+                lby = y1 + w
+                rbx = x1
+                rby = y1 - w
         else:
             a = (y2 - y1) / (x2 - x1)
             k = -1 / a
@@ -77,7 +77,6 @@ for file in files:
                 rby = y2 + w * np.sin(theta)
         clabels.append([ltx, lty])
         clabels.append([rtx, rty])
-        clabels.append([lbx, lby])
-        clabels.append([ltx, lty])
         clabels.append([rbx, rby])
+        clabels.append([lbx, lby])
     np.savetxt('cornell_labels/' + file.replace('r.txt', 'cpos.txt'), clabels, fmt="%.2f")

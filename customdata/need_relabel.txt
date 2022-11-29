@@ -1,0 +1,11 @@
+customdata/images_with_labels/pcd0132r.jpg
+customdata/images_with_labels/pcd0133r.jpg
+customdata/images_with_labels/pcd0158r.jpg
+customdata/images_with_labels/pcd0174r.jpg
+customdata/images_with_labels/pcd0176r.jpg
+customdata/images_with_labels/pcd0179r.jpg
+customdata/images_with_labels/pcd0188r.jpg
+customdata/images_with_labels/pcd0132r.jpg
+customdata/images_with_labels/pcd0132r.jpg
+customdata/images_with_labels/pcd0331r.jpg
+customdata/images_with_labels/pcd0250r.jpg
